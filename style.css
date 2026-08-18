@@ -1,0 +1,826 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   BODY
+========================================== */
+
+body {
+    min-height: 100vh;
+
+    font-family: 'Inter', sans-serif;
+
+    color: #1e293b;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #e0e7ff,
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #eef2ff,
+            #ffffff
+        );
+
+    padding: 40px 20px;
+}
+
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.container {
+    width: 100%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+
+/* ==========================================
+   HERO
+========================================== */
+
+.hero {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.badge {
+    display: inline-block;
+
+    padding: 7px 15px;
+
+    margin-bottom: 15px;
+
+    border-radius: 30px;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-size: 48px;
+
+    font-weight: 800;
+
+    margin-bottom: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #9333ea
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    max-width: 700px;
+
+    margin: auto;
+
+    color: #64748b;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   CARD
+========================================== */
+
+.card {
+    background: rgba(255, 255, 255, 0.85);
+
+    border: 1px solid rgba(226, 232, 240, 0.8);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 15px 40px rgba(15, 23, 42, 0.07);
+
+    margin-bottom: 25px;
+}
+
+
+/* ==========================================
+   UPLOAD CARD
+========================================== */
+
+.upload-card {
+    padding: 25px;
+}
+
+
+/* ==========================================
+   UPLOAD ZONE
+========================================== */
+
+.upload-zone {
+    padding: 55px 20px;
+
+    text-align: center;
+
+    border: 2px dashed #6366f1;
+
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    background: #fafaff;
+
+    transition: 0.3s ease;
+}
+
+.upload-zone:hover,
+.upload-zone.drag {
+    background: #eef2ff;
+
+    border-color: #4f46e5;
+
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   UPLOAD ICON
+========================================== */
+
+.upload-icon {
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eef2ff;
+
+    font-size: 34px;
+}
+
+
+/* ==========================================
+   UPLOAD TEXT
+========================================== */
+
+.upload-zone h2 {
+    margin-bottom: 10px;
+
+    font-size: 22px;
+}
+
+.upload-zone p {
+    margin-bottom: 18px;
+
+    color: #64748b;
+}
+
+
+/* ==========================================
+   FILE BADGE
+========================================== */
+
+.file-badge {
+    display: inline-block;
+
+    padding: 9px 16px;
+
+    border-radius: 30px;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   FORM
+========================================== */
+
+.form-section {
+    margin-top: 25px;
+}
+
+.form-section label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: 600;
+
+    color: #334155;
+}
+
+.form-section input {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+.form-section input:focus {
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+
+/* ==========================================
+   ANALYZE BUTTON
+========================================== */
+
+.analyzer-btn {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.analyzer-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(79, 70, 229, 0.25);
+}
+
+.analyzer-btn:disabled {
+    opacity: 0.7;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* ==========================================
+   LOADER
+========================================== */
+
+.loader-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(15, 23, 42, 0.45);
+
+    backdrop-filter: blur(5px);
+}
+
+.loader-box {
+    width: 320px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background: white;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.loader-box h3 {
+    margin: 15px 0 8px;
+}
+
+.loader-box p {
+    color: #64748b;
+}
+
+
+/* ==========================================
+   SPINNER
+========================================== */
+
+.spinner {
+    width: 50px;
+    height: 50px;
+
+    margin: auto;
+
+    border: 5px solid #e2e8f0;
+
+    border-top-color: #6366f1;
+
+    border-radius: 50%;
+
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* ==========================================
+   SCORE CARD
+========================================== */
+
+.score-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 30px;
+}
+
+
+/* ==========================================
+   SCORE CIRCLE
+========================================== */
+
+.score-circle {
+    width: 150px;
+    height: 150px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        conic-gradient(
+            #6366f1 0deg,
+            #6366f1 0deg,
+            #e2e8f0 0deg
+        );
+}
+
+.score-inner {
+    width: 120px;
+    height: 120px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: white;
+}
+
+.score-inner h2 {
+    color: #4f46e5;
+
+    font-size: 32px;
+
+    margin-bottom: 4px;
+}
+
+.score-inner span {
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* ==========================================
+   SCORE CONTENT
+========================================== */
+
+.score-content h2 {
+    margin-bottom: 10px;
+
+    font-size: 23px;
+}
+
+.score-content p {
+    max-width: 700px;
+
+    margin-bottom: 15px;
+
+    color: #64748b;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   GRADE
+========================================== */
+
+.grade {
+    display: inline-block;
+
+    padding: 8px 16px;
+
+    border-radius: 20px;
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+/* ==========================================
+   SECTION CARD
+========================================== */
+
+.section-card {
+    padding: 25px;
+}
+
+.section-title {
+    margin-bottom: 20px;
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+
+/* ==========================================
+   PREVIEW
+========================================== */
+
+.preview-box {
+    min-height: 300px;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 2px dashed #cbd5e1;
+
+    border-radius: 16px;
+
+    background: #f8fafc;
+}
+
+.resume-paper {
+    width: 100%;
+
+    max-width: 600px;
+
+    min-height: 230px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.08);
+}
+
+.resume-paper h2 {
+    margin-bottom: 10px;
+}
+
+.preview-placeholder {
+    color: #94a3b8;
+
+    margin-top: 30px;
+
+    text-align: center;
+}
+
+
+/* ==========================================
+   GRID
+========================================== */
+
+.grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+
+/* ==========================================
+   TAGS
+========================================== */
+
+.tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.tag {
+    padding: 9px 15px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.tag-found {
+    background: #dcfce7;
+
+    color: #15803d;
+}
+
+.tag-missing {
+    background: #fee2e2;
+
+    color: #b91c1c;
+}
+
+.empty-message {
+    color: #94a3b8;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   ATS
+========================================== */
+
+.ats-item {
+    margin-bottom: 24px;
+}
+
+.ats-item:last-child {
+    margin-bottom: 0;
+}
+
+.ats-label {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #334155;
+}
+
+.progress {
+    width: 100%;
+
+    height: 10px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #e2e8f0;
+}
+
+.progress-bar {
+    width: 0;
+
+    height: 100%;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6366f1,
+            #8b5cf6
+        );
+
+    transition: width 1s ease;
+}
+
+
+/* ==========================================
+   SUGGESTIONS
+========================================== */
+
+.suggestion-item {
+    display: flex;
+
+    gap: 15px;
+
+    align-items: flex-start;
+
+    padding: 16px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 14px;
+
+    background: #f8fafc;
+}
+
+.suggestion-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #eef2ff;
+
+    font-size: 19px;
+}
+
+.suggestion-item p {
+    color: #475569;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   DOWNLOAD
+========================================== */
+
+.download-btn {
+    padding: 13px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #4f46e5;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.download-btn:hover {
+    background: #4338ca;
+
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 25px 15px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .score-card {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .score-content {
+        text-align: center;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .upload-card,
+    .section-card,
+    .score-card {
+        padding: 18px;
+    }
+
+    .score-circle {
+        width: 135px;
+        height: 135px;
+    }
+
+    .score-inner {
+        width: 108px;
+        height: 108px;
+    }
+
+}
