@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Resume Analyzer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero">
+
+            <div class="badge">
+                🤖 AI Powered
+            </div>
+
+            <h1>AI Resume Analyzer</h1>
+
+            <p>
+                Upload your resume and get an ATS score,
+                detected skills, missing keywords and
+                personalized improvement suggestions.
+            </p>
+
+        </section>
+
+
+        <!-- ================= UPLOAD CARD ================= -->
+
+        <section class="card upload-card">
+
+            <div class="upload-zone" id="uploadZone">
+
+                <div class="upload-icon">
+                    📄
+                </div>
+
+                <h2 id="uploadTitle">
+                    Drop your resume here
+                </h2>
+
+                <p id="uploadText">
+                    PDF, DOC or DOCX • Maximum 5MB
+                </p>
+
+                <div class="file-badge" id="fileBadge">
+                    No file selected
+                </div>
+
+            </div>
+
+
+            <!-- Hidden file input -->
+
+            <input
+                type="file"
+                id="fileInput"
+                accept=".pdf,.doc,.docx"
+                hidden
+            >
+
+
+            <!-- Job Role -->
+
+            <div class="form-section">
+
+                <label for="jobRole">
+                    Target Job Role
+                </label>
+
+                <input
+                    type="text"
+                    id="jobRole"
+                    placeholder="Example: Java Developer"
+                >
+
+            </div>
+
+
+            <!-- Analyze Button -->
+
+            <button
+                class="analyzer-btn"
+                id="analyzeBtn"
+                type="button">
+
+                🔍 Analyze Resume
+
+            </button>
+
+        </section>
+
+
+        <!-- ================= LOADER ================= -->
+
+        <div
+            class="loader-overlay"
+            id="loader">
+
+            <div class="loader-box">
+
+                <div class="spinner"></div>
+
+                <h3>Analyzing Resume</h3>
+
+                <p id="loaderText">
+                    Reading resume...
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= RESULT ================= -->
+
+        <section
+            class="card score-card"
+            id="resultSection">
+
+            <div class="score-circle"
+                 id="scoreCircle">
+
+                <div class="score-inner">
+
+                    <h2 id="scoreElement">
+                        0%
+                    </h2>
+
+                    <span>
+                        ATS Score
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="score-content">
+
+                <h2 id="scoreTitle">
+                    Upload your resume
+                </h2>
+
+                <p id="scoreDescription">
+                    Upload your resume and click
+                    Analyze Resume to see your ATS score.
+                </p>
+
+                <div
+                    class="grade"
+                    id="gradeElement">
+
+                    Grade: -
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= RESUME PREVIEW ================= -->
+
+        <section class="card section-card">
+
+            <div class="section-title">
+                📄 Resume Preview
+            </div>
+
+            <div class="preview-box">
+
+                <div
+                    class="resume-paper"
+                    id="resumePreview">
+
+                    <h2>
+                        Resume Preview
+                    </h2>
+
+                    <p class="preview-placeholder">
+                        Your selected resume will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SKILLS GRID ================= -->
+
+        <div class="grid">
+
+
+            <!-- DETECTED SKILLS -->
+
+            <section class="card section-card">
+
+                <div class="section-title">
+                    ✅ Detected Skills
+                </div>
+
+                <div
+                    class="tags"
+                    id="foundSkills">
+
+                    <div class="empty-message">
+                        No skills detected yet.
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- MISSING KEYWORDS -->
+
+            <section class="card section-card">
+
+                <div class="section-title">
+                    ⚠️ Missing Keywords
+                </div>
+
+                <div
+                    class="tags"
+                    id="missingSkills">
+
+                    <div class="empty-message">
+                        No keywords detected yet.
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- ================= ATS COMPATIBILITY ================= -->
+
+        <section class="card section-card">
+
+            <div class="section-title">
+                📊 ATS Compatibility
+            </div>
+
+
+            <div class="ats-item">
+
+                <div class="ats-label">
+
+                    <span>
+                        Keyword Match
+                    </span>
+
+                    <span id="keywordValue">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="progress">
+
+                    <div
+                        class="progress-bar"
+                        id="keywordProgress">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="ats-item">
+
+                <div class="ats-label">
+
+                    <span>
+                        Section Structure
+                    </span>
+
+                    <span id="structureValue">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="progress">
+
+                    <div
+                        class="progress-bar"
+                        id="structureProgress">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="ats-item">
+
+                <div class="ats-label">
+
+                    <span>
+                        Resume Formatting
+                    </span>
+
+                    <span id="formatValue">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="progress">
+
+                    <div
+                        class="progress-bar"
+                        id="formatProgress">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SUGGESTIONS ================= -->
+
+        <section class="card section-card">
+
+            <div class="section-title">
+                💡 Resume Improvement Suggestions
+            </div>
+
+
+            <div class="suggestion-item">
+
+                <div class="suggestion-icon">
+                    📈
+                </div>
+
+                <p>
+                    Add measurable achievements and results
+                    to your experience section.
+                </p>
+
+            </div>
+
+
+            <div class="suggestion-item">
+
+                <div class="suggestion-icon">
+                    🔑
+                </div>
+
+                <p>
+                    Use keywords that are relevant to your
+                    target job role.
+                </p>
+
+            </div>
+
+
+            <div class="suggestion-item">
+
+                <div class="suggestion-icon">
+                    🐳
+                </div>
+
+                <p>
+                    Add Docker or cloud technologies if you
+                    have relevant experience.
+                </p>
+
+            </div>
+
+
+            <button
+                class="download-btn"
+                id="downloadBtn"
+                type="button">
+
+                ⬇️ Download Report
+
+            </button>
+
+        </section>
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
